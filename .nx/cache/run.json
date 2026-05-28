@@ -1,0 +1,32 @@
+{
+  "run": {
+    "command": "nx serve auth-service",
+    "startTime": "2026-05-28T14:39:21.804Z",
+    "endTime": "2026-05-28T16:36:36.964Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "auth-service:build",
+      "target": "build",
+      "projectName": "auth-service",
+      "hash": "12290963370766814090",
+      "startTime": "2026-05-28T14:39:21.837Z",
+      "endTime": "2026-05-28T14:39:49.623Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    },
+    {
+      "taskId": "auth-service:serve:development",
+      "target": "serve",
+      "projectName": "auth-service",
+      "hash": "6026767430867978947",
+      "startTime": "2026-05-28T14:39:49.653Z",
+      "endTime": "2026-05-28T16:36:35.901Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}
