@@ -1,7 +1,8 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query, UseGuards } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserRegisterDto } from './models/user-register.dto';
 import { UserLogsInDto } from './models/user-login.dto';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('users')
 export class UsersController {
@@ -27,11 +28,14 @@ export class UsersController {
     @HttpCode(HttpStatus.OK)
     @Post('sign-in')
     async signInUser(@Body() loginData: UserLogsInDto){
+        console.log(loginData)
         return await this.userService.loginUser(loginData)
     }
 
+    @UseGuards(AuthGuard)
+    @HttpCode(HttpStatus.OK)
     @Get('profile')
-    async getProfileData(email: string){
+    async getProfileData(@Query('email') email: string){
         return await this.userService.getProfileData(email);
     }
 

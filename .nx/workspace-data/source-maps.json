@@ -445,6 +445,452 @@
       "nx/core/project-json"
     ]
   },
+  "user-service": {
+    "root": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.cache": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.dependsOn": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.inputs": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.outputs": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.executor": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.cwd": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.args": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.command": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.metadata.technologies": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.technologies.0": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.description": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help.command": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build.metadata.help.example": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.continuous": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.executor": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.cwd": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.args": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.options.command": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.technologies": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.technologies.0": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.description": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help.command": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.preview.metadata.help.example": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build-deps": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.build-deps.dependsOn": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.continuous": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.dependsOn": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.executor": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.options": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.watch-deps.options.command": [
+      "user-service/webpack.config.js",
+      "@nx/webpack/plugin"
+    ],
+    "targets.lint": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.cache": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.inputs": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.outputs": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.executor": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.cwd": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.options.command": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.technologies.0": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.description": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.command": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.lint.metadata.help.example": [
+      "user-service/eslint.config.mjs",
+      "@nx/eslint/plugin"
+    ],
+    "targets.test": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.metadata": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.cache": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.inputs": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.outputs": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.executor": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.cwd": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.env": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.options.command": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.technologies.0": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.description": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.command": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "targets.test.metadata.help.example": [
+      "user-service/jest.config.cts",
+      "@nx/jest/plugin"
+    ],
+    "name": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.args": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.dependsOn": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.cache": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.executor": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.outputs": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.options": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune-lockfile.options.buildTarget": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.dependsOn": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.cache": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.outputs": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.executor": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.options": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.copy-workspace-modules.options.buildTarget": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune.dependsOn": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.prune.executor": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.continuous": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.defaultConfiguration": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.dependsOn": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.runBuildTargetDependencies": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.development.buildTarget": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "user-service/project.json",
+      "nx/core/project-json"
+    ]
+  },
   "auth-service-e2e": {
     "root": [
       "auth-service-e2e/project.json",

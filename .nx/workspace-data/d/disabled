@@ -1,0 +1,26 @@
+Daemon process terminated and closed the connection
+
+Messages from the log:
+[1m[33mTime taken for 'deserialize daemon response - GLOB' 0.09509999999863794ms[39m[22m
+[1m[33mTime taken for 'daemon-message-serialization-HASH_MULTI_GLOB' 0.11819999999897846ms[39m[22m
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.669Z - Received raw message of length 331
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.670Z - Received json message of type HASH_MULTI_GLOB
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.672Z - Serializing response for HASH_GLOB message in json mode
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.672Z - Responding to HASH_GLOB message
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.672Z - [REQUEST]: Responding to the client. handleHashMultiGlob
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.672Z - Done responding to the client handleHashMultiGlob
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:04.672Z - Handled json message HASH_GLOB. Handling time: 2. Response time: 0.
+[NX v22.7.5 Daemon Client] - 2026-05-28T02:14:04.676Z - [Messenger] Received message, length: 68
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:05.160Z - [WATCHER]: .gitignore was created or restored
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:05.160Z - [WATCHER]: File changes detected:
+Created:
+  - .gitignore
+Updated:
+(none)
+Deleted:
+(none)
+[NX v22.7.5 Daemon Server] - 2026-05-28T02:14:05.161Z - [SYNC]: clearing sync generators cache due to file changes
+
+
+
+More information: c:\Users\goraiastik2000\Desktop\HoldMySeat\.nx\workspace-data\d\daemon.log

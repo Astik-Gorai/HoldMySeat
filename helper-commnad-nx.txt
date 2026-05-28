@@ -1,0 +1,1 @@
+npx nx g @nx/nest:module -> Then Specify the exact path
