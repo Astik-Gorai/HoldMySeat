@@ -33,4 +33,9 @@ export class FetchEventFilterDto{
         required: false
     })
     sortByDate: boolean
+
+    @ApiProperty({
+        required: false
+    })
+    event_location: string
 }

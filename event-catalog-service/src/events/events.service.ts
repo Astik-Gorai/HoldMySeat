@@ -5,18 +5,23 @@ import { Repository } from 'typeorm';
 import { RegisterEventDto } from './models/dtos/register-event.dto';
 import { EventStatus, EventType } from './models/constants';
 import { FetchEventFilterDto } from './models/dtos/fetch-event-filter.dto';
+import { EventShowEntity } from '../shows/models/event_show.entity';
+import { VenuesEntity } from '../venues/models/venues.entity';
 
 interface FilterObjInterface{
-    name: string
-    type: EventType
-    id: string
-    status: EventStatus
-    organizer_id: string
+    name?: string
+    type?: EventType
+    id?: string
+    status?: EventStatus
+    organizer_id?: string
+    location?: string
 }
 
 @Injectable()
 export class EventsService {
     constructor(@InjectRepository(EventEntity) private readonly evenRepo: Repository<EventEntity>,
+    @InjectRepository(VenuesEntity) private readonly venueRepo: Repository<VenuesEntity>,
+    @InjectRepository(EventShowEntity) private readonly showRepo: Repository<EventShowEntity>,
 ){}
 
     async registerEvent(eventData: RegisterEventDto){
@@ -58,34 +63,64 @@ export class EventsService {
 
     async getEvents(filterData:FetchEventFilterDto){
         console.log("Filter data received at the service: ", filterData)
+
+       
+        // console.log("Events After Join: ", events)
         // console.log(filterData.id)
         try{
-            const filter : Partial<FilterObjInterface> = {
-
-            }
+            const query = this.evenRepo.createQueryBuilder('events')
+            .leftJoinAndSelect('events.shows', 'shows')
+            .leftJoinAndSelect('shows.venue', 'venues')
+            .select([
+                'events.id',          //  include main entity ID
+                'events.name',
+                'events.type',
+                'events.status',
+                'events.organizer_id',
+                
+                'shows.id',           // include joined entity ID
+                // 'shows.totalSeats',
+                // 'shows.availableSeats',
+                'shows.status',
+                // 'shows.basePrice',
+                
+                'venues.id',          // include deeply joined entity ID
+                'venues.name',
+                'venues.city',
+                'venues.address',
+              ]);
             if(filterData?.event_name){
-                filter.name = filterData.event_name;
+                query.andWhere('events.name = :name', { name: filterData.event_name })
             }
             if(filterData?.event_type){
-                filter.type = filterData.event_type
+                query.andWhere('events.type = :type', { type: filterData.event_type })
             }
             if(filterData?.event_status){
-                filter.status = filterData.event_status
+                query.andWhere('events.status = :status', { status: filterData.event_status })
             }
             if(filterData?.id){
-                filter.id = filterData.id
+                query.andWhere('events.id = :id', { id: filterData.id })
             }
             if(filterData?.organizer_id){
-                filter.organizer_id = filterData.organizer_id
+                query.andWhere('events.organizer_id = :organizer_id', { organizer_id: filterData.organizer_id })
             }
-            console.log("Filter:", filter)
+            if(filterData?.event_location){
+                query.andWhere('venues.city = :location', { location: filterData.event_location })
+            }
+            query.orderBy('events.createdAt', 'ASC')
 
-            const events = await this.evenRepo.find({
-                where: filter
-            })
-            if(filterData.sortByDate){
-                events.sort()
-            }
+
+            const events = await query.getMany(); 
+
+            // const events = await this.evenRepo.find({
+            //     ...filter,
+            //     order: {
+            //         createdAt: 'ASC'
+            //     }
+            // })
+            // if(filterData.sortByDate){
+            //     events.sort()
+            // }
             return events;
 
         }catch(err){

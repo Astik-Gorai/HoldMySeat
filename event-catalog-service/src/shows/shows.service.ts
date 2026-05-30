@@ -2,7 +2,7 @@ import { HttpException, Injectable, NotFoundException } from '@nestjs/common';
 import { RegisterShowDto } from './models/register-show.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { EventShowEntity } from './models/event_show.entity';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { EventEntity } from '../events/models/entities/event.entity';
 import { VenuesEntity } from '../venues/models/venues.entity';
 import { ShowsFilterDto } from './models/show-filter.dto';
@@ -13,7 +13,8 @@ export class ShowsService {
     constructor(
         @InjectRepository(EventShowEntity) private readonly showRepository : Repository<EventShowEntity>,
         @InjectRepository(EventEntity) private readonly eventRepository: Repository<EventEntity>,
-        @InjectRepository(VenuesEntity) private readonly venueRepository: Repository<VenuesEntity>
+        @InjectRepository(VenuesEntity) private readonly venueRepository: Repository<VenuesEntity>,
+        private readonly dataSource: DataSource
     ){}
     async registerShow(showData: RegisterShowDto){
         try{

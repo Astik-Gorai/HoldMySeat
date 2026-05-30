@@ -8,7 +8,7 @@ import { VenuesEntity } from '../venues/models/venues.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([EventEntity]),
+    TypeOrmModule.forFeature([EventEntity,VenuesEntity,EventShowEntity]),
   ],
   controllers: [EventsController],
   providers: [EventsService],
