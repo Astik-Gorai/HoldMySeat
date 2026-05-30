@@ -28,7 +28,8 @@
       "exclude": [
         "auth-service-e2e/**/*",
         "user-service-e2e/**/*",
-        "api-gateway-e2e/**/*"
+        "api-gateway-e2e/**/*",
+        "event-catalog-service-e2e/**/*"
       ]
     }
   ]
