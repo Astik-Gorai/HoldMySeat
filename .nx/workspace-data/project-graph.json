@@ -1,22 +1,168 @@
 {
   "nodes": {
-    "auth-service-e2e": {
-      "name": "auth-service-e2e",
-      "type": "e2e",
+    "event-catalog-service": {
+      "name": "event-catalog-service",
+      "type": "app",
       "data": {
-        "root": "auth-service-e2e",
+        "root": "event-catalog-service",
+        "projectType": "application",
+        "metadata": {},
         "targets": {
+          "build": {
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "webpack-cli"
+                ]
+              },
+              {
+                "json": "{workspaceRoot}/tsconfig.json",
+                "fields": [
+                  "extends",
+                  "files",
+                  "include"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist\\event-catalog-service"
+            ],
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Runs Webpack build",
+              "help": {
+                "command": "npx webpack-cli build --help",
+                "example": {
+                  "options": {
+                    "json": "stats.json"
+                  },
+                  "args": [
+                    "--profile"
+                  ]
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "event-catalog-service",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli build"
+            },
+            "configurations": {
+              "development": {
+                "args": [
+                  "--node-env=development"
+                ]
+              }
+            },
+            "parallelism": true
+          },
+          "serve": {
+            "continuous": true,
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "dependsOn": [
+              "build"
+            ],
+            "options": {
+              "buildTarget": "event-catalog-service:build",
+              "runBuildTargetDependencies": false
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "event-catalog-service:build:development"
+              },
+              "production": {
+                "buildTarget": "event-catalog-service:build:production"
+              }
+            },
+            "parallelism": true
+          },
+          "preview": {
+            "continuous": true,
+            "options": {
+              "cwd": "event-catalog-service",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli serve"
+            },
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Starts Webpack dev server in production mode",
+              "help": {
+                "command": "npx webpack-cli serve --help",
+                "example": {
+                  "options": {
+                    "args": [
+                      "--client-progress",
+                      "--history-api-fallback "
+                    ]
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "@nx/web:file-server",
+            "options": {
+              "buildTarget": "build",
+              "spa": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx nx watch --projects event-catalog-service --includeDependentProjects -- npx nx build-deps event-catalog-service"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
           "lint": {
             "cache": true,
             "options": {
-              "cwd": "auth-service-e2e",
+              "cwd": "event-catalog-service",
               "command": "eslint ."
             },
             "inputs": [
               "default",
               "^default",
               "{workspaceRoot}/eslint.config.mjs",
-              "{workspaceRoot}/auth-service-e2e/eslint.config.mjs",
+              "{workspaceRoot}/event-catalog-service/eslint.config.mjs",
               "{workspaceRoot}/tools/eslint-rules/**/*",
               {
                 "externalDependencies": [
@@ -45,30 +191,100 @@
             "configurations": {},
             "parallelism": true
           },
-          "e2e": {
-            "executor": "@nx/jest:jest",
-            "outputs": [
-              "{workspaceRoot}/coverage/{e2eProjectRoot}"
+          "test": {
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "npx jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest",
+                  "@nx/jest",
+                  "ts-jest"
+                ]
+              },
+              {
+                "dependentTasksOutputFiles": "**/*.d.ts",
+                "transitive": true
+              }
             ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\event-catalog-service"
+            ],
+            "executor": "nx:run-commands",
             "options": {
-              "jestConfig": "auth-service-e2e/jest.config.cts",
+              "cwd": "event-catalog-service",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest",
               "passWithNoTests": true
             },
-            "dependsOn": [
-              "auth-service:build",
-              "auth-service:serve"
-            ],
             "configurations": {},
+            "parallelism": true
+          },
+          "prune-lockfile": {
+            "dependsOn": [
+              "build"
+            ],
+            "cache": true,
+            "executor": "@nx/js:prune-lockfile",
+            "outputs": [
+              "{workspaceRoot}/dist/event-catalog-service/package.json",
+              "{workspaceRoot}/dist/event-catalog-service/package-lock.json"
+            ],
+            "options": {
+              "buildTarget": "build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "copy-workspace-modules": {
+            "dependsOn": [
+              "build"
+            ],
+            "cache": true,
+            "outputs": [
+              "{workspaceRoot}/dist/event-catalog-service/workspace_modules"
+            ],
+            "executor": "@nx/js:copy-workspace-modules",
+            "options": {
+              "buildTarget": "build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prune": {
+            "dependsOn": [
+              "prune-lockfile",
+              "copy-workspace-modules"
+            ],
+            "executor": "nx:noop",
+            "configurations": {},
+            "options": {},
             "parallelism": true
           }
         },
-        "name": "auth-service-e2e",
+        "name": "event-catalog-service",
         "$schema": "../node_modules/nx/schemas/project-schema.json",
-        "projectType": "application",
-        "implicitDependencies": [
-          "auth-service"
-        ],
-        "tags": []
+        "sourceRoot": "event-catalog-service/src",
+        "tags": [],
+        "implicitDependencies": []
       }
     },
     "auth-service": {
@@ -641,6 +857,292 @@
         "name": "user-service",
         "$schema": "../node_modules/nx/schemas/project-schema.json",
         "sourceRoot": "user-service/src",
+        "tags": [],
+        "implicitDependencies": []
+      }
+    },
+    "api-gateway": {
+      "name": "api-gateway",
+      "type": "app",
+      "data": {
+        "root": "api-gateway",
+        "projectType": "application",
+        "metadata": {},
+        "targets": {
+          "build": {
+            "cache": true,
+            "dependsOn": [
+              "^build"
+            ],
+            "inputs": [
+              "default",
+              "^default",
+              {
+                "externalDependencies": [
+                  "webpack-cli"
+                ]
+              },
+              {
+                "json": "{workspaceRoot}/tsconfig.json",
+                "fields": [
+                  "extends",
+                  "files",
+                  "include"
+                ]
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}/dist\\api-gateway"
+            ],
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Runs Webpack build",
+              "help": {
+                "command": "npx webpack-cli build --help",
+                "example": {
+                  "options": {
+                    "json": "stats.json"
+                  },
+                  "args": [
+                    "--profile"
+                  ]
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "api-gateway",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli build"
+            },
+            "configurations": {
+              "development": {
+                "args": [
+                  "--node-env=development"
+                ]
+              }
+            },
+            "parallelism": true
+          },
+          "serve": {
+            "continuous": true,
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "dependsOn": [
+              "build"
+            ],
+            "options": {
+              "buildTarget": "api-gateway:build",
+              "runBuildTargetDependencies": false
+            },
+            "configurations": {
+              "development": {
+                "buildTarget": "api-gateway:build:development"
+              },
+              "production": {
+                "buildTarget": "api-gateway:build:production"
+              }
+            },
+            "parallelism": true
+          },
+          "preview": {
+            "continuous": true,
+            "options": {
+              "cwd": "api-gateway",
+              "args": [
+                "--node-env=production"
+              ],
+              "command": "webpack-cli serve"
+            },
+            "metadata": {
+              "technologies": [
+                "webpack"
+              ],
+              "description": "Starts Webpack dev server in production mode",
+              "help": {
+                "command": "npx webpack-cli serve --help",
+                "example": {
+                  "options": {
+                    "args": [
+                      "--client-progress",
+                      "--history-api-fallback "
+                    ]
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "serve-static": {
+            "continuous": true,
+            "dependsOn": [
+              "build"
+            ],
+            "executor": "@nx/web:file-server",
+            "options": {
+              "buildTarget": "build",
+              "spa": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "build-deps": {
+            "dependsOn": [
+              "^build"
+            ],
+            "configurations": {},
+            "options": {},
+            "parallelism": true,
+            "executor": "nx:noop"
+          },
+          "watch-deps": {
+            "continuous": true,
+            "dependsOn": [
+              "build-deps"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "command": "npx nx watch --projects api-gateway --includeDependentProjects -- npx nx build-deps api-gateway"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "lint": {
+            "cache": true,
+            "options": {
+              "cwd": "api-gateway",
+              "command": "eslint ."
+            },
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/eslint.config.mjs",
+              "{workspaceRoot}/tools/eslint-rules/**/*",
+              {
+                "externalDependencies": [
+                  "eslint"
+                ]
+              }
+            ],
+            "outputs": [
+              "{options.outputFile}"
+            ],
+            "metadata": {
+              "technologies": [
+                "eslint"
+              ],
+              "description": "Runs ESLint on project",
+              "help": {
+                "command": "npx eslint --help",
+                "example": {
+                  "options": {
+                    "max-warnings": 0
+                  }
+                }
+              }
+            },
+            "executor": "nx:run-commands",
+            "configurations": {},
+            "parallelism": true
+          },
+          "test": {
+            "metadata": {
+              "technologies": [
+                "jest"
+              ],
+              "description": "Run Jest Tests",
+              "help": {
+                "command": "npx jest --help",
+                "example": {
+                  "options": {
+                    "coverage": true
+                  }
+                }
+              }
+            },
+            "cache": true,
+            "inputs": [
+              "default",
+              "^default",
+              "{workspaceRoot}/jest.preset.js",
+              {
+                "externalDependencies": [
+                  "jest",
+                  "@nx/jest",
+                  "ts-jest"
+                ]
+              },
+              {
+                "dependentTasksOutputFiles": "**/*.d.ts",
+                "transitive": true
+              }
+            ],
+            "outputs": [
+              "{workspaceRoot}\\coverage\\api-gateway"
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+              "cwd": "api-gateway",
+              "env": {
+                "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+              },
+              "command": "jest",
+              "passWithNoTests": true
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prune-lockfile": {
+            "dependsOn": [
+              "build"
+            ],
+            "cache": true,
+            "executor": "@nx/js:prune-lockfile",
+            "outputs": [
+              "{workspaceRoot}/dist/api-gateway/package.json",
+              "{workspaceRoot}/dist/api-gateway/package-lock.json"
+            ],
+            "options": {
+              "buildTarget": "build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "copy-workspace-modules": {
+            "dependsOn": [
+              "build"
+            ],
+            "cache": true,
+            "outputs": [
+              "{workspaceRoot}/dist/api-gateway/workspace_modules"
+            ],
+            "executor": "@nx/js:copy-workspace-modules",
+            "options": {
+              "buildTarget": "build"
+            },
+            "configurations": {},
+            "parallelism": true
+          },
+          "prune": {
+            "dependsOn": [
+              "prune-lockfile",
+              "copy-workspace-modules"
+            ],
+            "executor": "nx:noop",
+            "configurations": {},
+            "options": {},
+            "parallelism": true
+          }
+        },
+        "name": "api-gateway",
+        "$schema": "../node_modules/nx/schemas/project-schema.json",
+        "sourceRoot": "api-gateway/src",
         "tags": [],
         "implicitDependencies": []
       }
@@ -12025,20 +12527,40 @@
     }
   },
   "dependencies": {
-    "auth-service-e2e": [
+    "event-catalog-service": [
       {
-        "source": "auth-service-e2e",
-        "target": "auth-service",
-        "type": "implicit"
-      },
-      {
-        "source": "auth-service-e2e",
-        "target": "npm:axios",
+        "source": "event-catalog-service",
+        "target": "npm:@nestjs/testing",
         "type": "static"
       },
       {
-        "source": "auth-service-e2e",
-        "target": "npm:@nx/node",
+        "source": "event-catalog-service",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "event-catalog-service",
+        "target": "npm:@nestjs/typeorm",
+        "type": "static"
+      },
+      {
+        "source": "event-catalog-service",
+        "target": "npm:typeorm",
+        "type": "static"
+      },
+      {
+        "source": "event-catalog-service",
+        "target": "npm:@nestjs/swagger",
+        "type": "static"
+      },
+      {
+        "source": "event-catalog-service",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "event-catalog-service",
+        "target": "npm:@nx/webpack",
         "type": "static"
       }
     ],
@@ -12127,6 +12649,28 @@
       },
       {
         "source": "user-service",
+        "target": "npm:@nx/webpack",
+        "type": "static"
+      }
+    ],
+    "api-gateway": [
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/testing",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/common",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
+        "target": "npm:@nestjs/core",
+        "type": "static"
+      },
+      {
+        "source": "api-gateway",
         "target": "npm:@nx/webpack",
         "type": "static"
       }
@@ -28860,5 +29404,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1779986162329
+  "computedAt": 1780059261806
 }

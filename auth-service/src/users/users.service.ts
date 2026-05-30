@@ -32,7 +32,7 @@ export class UsersService {
             console.log("Existing User: "+ existingUser)
             if(existingUser)
                 throw new HttpException("An email id with this already exixting in our database",409)
-            const user = this.userRepo.create({
+            const user = await this.userRepo.create({
                 first_name: userData.firstName,
                 last_name: userData.lastName,
                 password:hashedPassword,
