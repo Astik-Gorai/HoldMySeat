@@ -2,25 +2,26 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { SeatInitDto } from './models/seats.init.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, In, Repository } from 'typeorm';
-import { SeatEntity } from './models/seat.entity';
+import { ShowSeatsEntity } from './models/show-seats.entity';
 import { SeatsStatusUpdateDto } from './models/seats-status-update.dto';
 import { SeatStatusEnum } from './models/seats-status.enum';
 
 @Injectable()
 export class SeatsService {
     constructor(
-        @InjectRepository(SeatEntity) private readonly seatRepo: Repository<SeatEntity>,
+        @InjectRepository(ShowSeatsEntity) private readonly seatRepo: Repository<ShowSeatsEntity>,
         private readonly dataSoure: DataSource
     ){}
 
     async initializeSeats(seatInitPayload: SeatInitDto) {
-        const seatsToCreate: SeatEntity[] = [];
-    
-        seatInitPayload.seats.forEach(seat => {
+        const seatsToCreate: ShowSeatsEntity[] = [];
+        const seats = []
+
+        // We need to fetch seat details from the event-catalog-service
+        
+        seats.forEach(seat => {
             const showSeat = this.seatRepo.create({
-                x_position: seat.x_pos,
-                y_position: seat.y_pos,
-                seat_label: seat.seat_label
+                venue_seat_id: seat.venue_seat_id
             });
             
             seatsToCreate.push(showSeat);
@@ -28,7 +29,7 @@ export class SeatsService {
     
         if (seatsToCreate.length === 0) return;
         await this.dataSoure.transaction(async (txManager)=>{
-            const txSeatRepo = txManager.getRepository(SeatEntity)
+            const txSeatRepo = txManager.getRepository(ShowSeatsEntity)
             // Save with 'chunk' configuration to protect database memory boundaries
             await txSeatRepo.save(seatsToCreate, { chunk: 500 });
         })
@@ -46,7 +47,7 @@ export class SeatsService {
         try{
             const fiveMinutesFromNow = new Date(Date.now() + 5 * 60 * 1000);
             await this.dataSoure.transaction( async (transectionManager) =>{
-                const txSeatRepo = transectionManager.getRepository(SeatEntity);
+                const txSeatRepo = transectionManager.getRepository(ShowSeatsEntity);
                 await txSeatRepo.update(
                     {id: In(editSeatPayload.seatIds)},
                     {status: editSeatPayload.newStatus,

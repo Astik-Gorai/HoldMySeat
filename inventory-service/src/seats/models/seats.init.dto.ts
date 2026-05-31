@@ -3,14 +3,10 @@ import { UUID } from "crypto";
 
 
 export class SeatEntityDto{
-    @ApiProperty()
-    x_pos: number
-
-    @ApiProperty()
-    y_pos: number
-
-    @ApiProperty()
-    seat_label: string
+    @ApiProperty({
+        required: true
+    })
+    venue_seat_id: string
 
     @ApiProperty({
         required: false
@@ -30,7 +26,11 @@ export class SeatInitDto{
     show_id: string
 
     @ApiProperty({
-        required: true
+        required:true
     })
-    seats: SeatEntityDto[]
+    venue_id:string
+    // @ApiProperty({
+    //     required: true
+    // })
+    // seats: SeatEntityDto[]
 }
