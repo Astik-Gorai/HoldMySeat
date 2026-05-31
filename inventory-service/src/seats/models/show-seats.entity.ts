@@ -2,8 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { SeatStatusEnum } from "./seats-status.enum";
 
 
-@Entity('seats')
-export class SeatEntity {
+@Entity('show-seats')
+export class ShowSeatsEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string
 
@@ -12,18 +12,13 @@ export class SeatEntity {
 
     @Column({
         type: 'enum',
+        enum: SeatStatusEnum,
         default: SeatStatusEnum.AVAILABLE
     })
     status: SeatStatusEnum
 
-    @Column()
-    x_position: number
-
-    @Column()
-    y_position:number
-    
-    @Column()
-    seat_label: string
+    @Column('uuid')
+    venue_seat_id: string
 
     @Column({
         default: null,
