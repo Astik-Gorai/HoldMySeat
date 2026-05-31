@@ -28,7 +28,191 @@
     }
   ],
   "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": ".gitignore",
+        "hash": "3831061285300700657"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "17085498363870782104"
+      },
+      {
+        "file": ".prettierrc",
+        "hash": "6820402234827505055"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "17179548346057599846"
+      },
+      {
+        "file": "README.md",
+        "hash": "10224895120078582308"
+      },
+      {
+        "file": "eslint.config.mjs",
+        "hash": "1750064783103198479"
+      },
+      {
+        "file": "helper-commnad-nx.txt",
+        "hash": "9227667848114061837"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "9882362695153092473"
+      },
+      {
+        "file": "jest.preset.js",
+        "hash": "7473220183190921152"
+      },
+      {
+        "file": "nx.json",
+        "hash": "17726925753861716072"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "9375954003215720227"
+      },
+      {
+        "file": "package.json",
+        "hash": "5354955819404416339"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "9602795642547511658"
+      }
+    ],
     "projectFileMap": {
+      "inventory-service": [
+        {
+          "file": "inventory-service/.gitignore",
+          "hash": "13603088859507085958"
+        },
+        {
+          "file": "inventory-service/eslint.config.mjs",
+          "hash": "17888082442276282709"
+        },
+        {
+          "file": "inventory-service/project.json",
+          "hash": "89400014445194110"
+        },
+        {
+          "file": "inventory-service/responsibilty.md",
+          "hash": "11545627315146629440"
+        },
+        {
+          "file": "inventory-service/src/app/app.controller.ts",
+          "hash": "7449614201840690085",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/app/app.module.ts",
+          "hash": "10462134867886029079",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/app/app.service.ts",
+          "hash": "7653932249302388706",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "inventory-service/src/main.ts",
+          "hash": "1473621791371823293",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seat.entity.ts",
+          "hash": "14332062118056534018",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats-status-update.dto.ts",
+          "hash": "10215283126596658187",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats-status.enum.ts",
+          "hash": "16357494401892796883"
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats.init.dto.ts",
+          "hash": "1483723436668766757",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.controller.spec.ts",
+          "hash": "13087587309194397477",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.controller.ts",
+          "hash": "3428046662480359049",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.module.ts",
+          "hash": "3510701761839576388",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.service.spec.ts",
+          "hash": "9533165773416162337",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.service.ts",
+          "hash": "2303514508402193965",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/tsconfig.app.json",
+          "hash": "10274140171022948136"
+        },
+        {
+          "file": "inventory-service/tsconfig.json",
+          "hash": "11210391855315197954"
+        },
+        {
+          "file": "inventory-service/webpack.config.js",
+          "hash": "8712970456205415098",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
       "user-service": [
         {
           "file": "user-service/eslint.config.mjs",
@@ -109,278 +293,7 @@
           ]
         }
       ],
-      "event-catalog-service": [
-        {
-          "file": "event-catalog-service/.gitignore",
-          "hash": "13603088859507085958"
-        },
-        {
-          "file": "event-catalog-service/eslint.config.mjs",
-          "hash": "17888082442276282709"
-        },
-        {
-          "file": "event-catalog-service/jest.config.cts",
-          "hash": "3215392933409152667"
-        },
-        {
-          "file": "event-catalog-service/project.json",
-          "hash": "10978752116562499177"
-        },
-        {
-          "file": "event-catalog-service/src/app/app.controller.spec.ts",
-          "hash": "10209687131463184117",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/app/app.controller.ts",
-          "hash": "7449614201840690085",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/app/app.module.ts",
-          "hash": "12264363248753512438",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/app/app.service.spec.ts",
-          "hash": "15103131282087157093",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/app/app.service.ts",
-          "hash": "7653932249302388706",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "event-catalog-service/src/events/events.controller.spec.ts",
-          "hash": "13048457770129919035",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/events.controller.ts",
-          "hash": "1215012434086534321",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/events.module.ts",
-          "hash": "12440096958385682077",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/events.service.spec.ts",
-          "hash": "170821030477368392",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/events.service.ts",
-          "hash": "4539969300203264138",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/models/constants.ts",
-          "hash": "2473675404230761200"
-        },
-        {
-          "file": "event-catalog-service/src/events/models/dtos/fetch-event-filter.dto.ts",
-          "hash": "17760996609707853543",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/models/dtos/register-event.dto.ts",
-          "hash": "17256014041518923254",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/events/models/entities/event.entity.ts",
-          "hash": "4833018046570473745",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/main.ts",
-          "hash": "15186212828832134511",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core",
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/models/event_show.entity.ts",
-          "hash": "2324209989549764567",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/models/register-show.dto.ts",
-          "hash": "10083835595884673278",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/models/show-filter.dto.ts",
-          "hash": "11012421088553053563",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/shows.controller.spec.ts",
-          "hash": "8421473051520009654",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/shows.controller.ts",
-          "hash": "13866900550076918655",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/shows.module.ts",
-          "hash": "10226613809839500510",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/shows.service.spec.ts",
-          "hash": "14124935456572424193",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/shows/shows.service.ts",
-          "hash": "13917214798261190482",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/models/register-venue.dto.ts",
-          "hash": "15756764091159764809",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/models/venue-seats.entity.ts",
-          "hash": "4490030444461901530",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/models/venues.entity.ts",
-          "hash": "13469988412059476907",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/venues.controller.spec.ts",
-          "hash": "3178722591841930234",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/venues.controller.ts",
-          "hash": "3001201656287971578",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/venues.module.ts",
-          "hash": "16386713949034898645",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/venues.service.spec.ts",
-          "hash": "18182226858520520477",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "event-catalog-service/src/venues/venues.service.ts",
-          "hash": "16986014441549546257",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/typeorm",
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "event-catalog-service/tsconfig.app.json",
-          "hash": "10866886686149627505"
-        },
-        {
-          "file": "event-catalog-service/tsconfig.json",
-          "hash": "9096817977897245064"
-        },
-        {
-          "file": "event-catalog-service/tsconfig.spec.json",
-          "hash": "15412988682655645086"
-        },
-        {
-          "file": "event-catalog-service/webpack.config.js",
-          "hash": "367453888680420408",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
       "auth-service": [
-        {
-          "file": "auth-service/.env",
-          "hash": "449153506877412741"
-        },
         {
           "file": "auth-service/eslint.config.mjs",
           "hash": "17888082442276282709"
@@ -622,114 +535,95 @@
           ]
         }
       ],
-      "inventory-service": [
+      "event-catalog-service": [
         {
-          "file": "inventory-service/.gitignore",
+          "file": "event-catalog-service/.gitignore",
           "hash": "13603088859507085958"
         },
         {
-          "file": "inventory-service/eslint.config.mjs",
+          "file": "event-catalog-service/eslint.config.mjs",
           "hash": "17888082442276282709"
         },
         {
-          "file": "inventory-service/project.json",
-          "hash": "89400014445194110"
+          "file": "event-catalog-service/jest.config.cts",
+          "hash": "3215392933409152667"
         },
         {
-          "file": "inventory-service/responsibilty.md",
-          "hash": "11545627315146629440"
+          "file": "event-catalog-service/project.json",
+          "hash": "10978752116562499177"
         },
         {
-          "file": "inventory-service/src/app/app.controller.ts",
+          "file": "event-catalog-service/src/app/app.controller.spec.ts",
+          "hash": "10209687131463184117",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/app/app.controller.ts",
           "hash": "7449614201840690085",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "inventory-service/src/app/app.module.ts",
-          "hash": "9407070197170013190",
+          "file": "event-catalog-service/src/app/app.module.ts",
+          "hash": "12264363248753512438",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm"
           ]
         },
         {
-          "file": "inventory-service/src/app/app.service.ts",
+          "file": "event-catalog-service/src/app/app.service.spec.ts",
+          "hash": "15103131282087157093",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/app/app.service.ts",
           "hash": "7653932249302388706",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "inventory-service/src/assets/.gitkeep",
+          "file": "event-catalog-service/src/assets/.gitkeep",
           "hash": "3244421341483603138"
         },
         {
-          "file": "inventory-service/src/main.ts",
-          "hash": "1473621791371823293",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "inventory-service/src/seats/models/seat.entity.ts",
-          "hash": "14688131526216531394",
-          "deps": [
-            "npm:typeorm"
-          ]
-        },
-        {
-          "file": "inventory-service/src/seats/models/seats-status-update.dto.ts",
-          "hash": "10215283126596658187",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "inventory-service/src/seats/models/seats-status.enum.ts",
-          "hash": "16357494401892796883"
-        },
-        {
-          "file": "inventory-service/src/seats/models/seats.init.dto.ts",
-          "hash": "1483723436668766757",
-          "deps": [
-            "npm:@nestjs/swagger"
-          ]
-        },
-        {
-          "file": "inventory-service/src/seats/seats.controller.spec.ts",
-          "hash": "13087587309194397477",
+          "file": "event-catalog-service/src/events/events.controller.spec.ts",
+          "hash": "13048457770129919035",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
-          "file": "inventory-service/src/seats/seats.controller.ts",
-          "hash": "3428046662480359049",
+          "file": "event-catalog-service/src/events/events.controller.ts",
+          "hash": "1215012434086534321",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
-          "file": "inventory-service/src/seats/seats.module.ts",
-          "hash": "3510701761839576388",
+          "file": "event-catalog-service/src/events/events.module.ts",
+          "hash": "12440096958385682077",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm"
           ]
         },
         {
-          "file": "inventory-service/src/seats/seats.service.spec.ts",
-          "hash": "9533165773416162337",
+          "file": "event-catalog-service/src/events/events.service.spec.ts",
+          "hash": "170821030477368392",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
-          "file": "inventory-service/src/seats/seats.service.ts",
-          "hash": "2303514508402193965",
+          "file": "event-catalog-service/src/events/events.service.ts",
+          "hash": "4539969300203264138",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -737,108 +631,178 @@
           ]
         },
         {
-          "file": "inventory-service/tsconfig.app.json",
-          "hash": "10274140171022948136"
+          "file": "event-catalog-service/src/events/models/constants.ts",
+          "hash": "2473675404230761200"
         },
         {
-          "file": "inventory-service/tsconfig.json",
-          "hash": "11210391855315197954"
+          "file": "event-catalog-service/src/events/models/dtos/fetch-event-filter.dto.ts",
+          "hash": "17760996609707853543",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
         },
         {
-          "file": "inventory-service/webpack.config.js",
-          "hash": "8712970456205415098",
+          "file": "event-catalog-service/src/events/models/dtos/register-event.dto.ts",
+          "hash": "17256014041518923254",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/events/models/entities/event.entity.ts",
+          "hash": "4833018046570473745",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/main.ts",
+          "hash": "15186212828832134511",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core",
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/models/event_show.entity.ts",
+          "hash": "2324209989549764567",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/models/register-show.dto.ts",
+          "hash": "10083835595884673278",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/models/show-filter.dto.ts",
+          "hash": "11012421088553053563",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/shows.controller.spec.ts",
+          "hash": "8421473051520009654",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/shows.controller.ts",
+          "hash": "13866900550076918655",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/shows.module.ts",
+          "hash": "10226613809839500510",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/shows.service.spec.ts",
+          "hash": "14124935456572424193",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/shows/shows.service.ts",
+          "hash": "13917214798261190482",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/models/register-venue.dto.ts",
+          "hash": "15756764091159764809",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/models/venue-seats.entity.ts",
+          "hash": "4490030444461901530",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/models/venues.entity.ts",
+          "hash": "13469988412059476907",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/venues.controller.spec.ts",
+          "hash": "3178722591841930234",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/venues.controller.ts",
+          "hash": "2091486533540501023",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/venues.module.ts",
+          "hash": "16386713949034898645",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/venues.service.spec.ts",
+          "hash": "18182226858520520477",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "event-catalog-service/src/venues/venues.service.ts",
+          "hash": "1608776255986769231",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "event-catalog-service/tsconfig.app.json",
+          "hash": "10866886686149627505"
+        },
+        {
+          "file": "event-catalog-service/tsconfig.json",
+          "hash": "9096817977897245064"
+        },
+        {
+          "file": "event-catalog-service/tsconfig.spec.json",
+          "hash": "15412988682655645086"
+        },
+        {
+          "file": "event-catalog-service/webpack.config.js",
+          "hash": "367453888680420408",
           "deps": [
             "npm:@nx/webpack"
           ]
         }
       ]
-    },
-    "nonProjectFiles": [
-      {
-        "file": ".gitignore",
-        "hash": "1403003793964990969"
-      },
-      {
-        "file": ".prettierignore",
-        "hash": "17085498363870782104"
-      },
-      {
-        "file": ".prettierrc",
-        "hash": "6820402234827505055"
-      },
-      {
-        "file": ".vscode/launch.json",
-        "hash": "17179548346057599846"
-      },
-      {
-        "file": "README.md",
-        "hash": "10224895120078582308"
-      },
-      {
-        "file": "dist/auth-service/main.js",
-        "hash": "8077627728171993696"
-      },
-      {
-        "file": "dist/auth-service/main.js.map",
-        "hash": "10874248047106888687"
-      },
-      {
-        "file": "dist/auth-service/package-lock.json",
-        "hash": "8113477815710250996"
-      },
-      {
-        "file": "dist/auth-service/package.json",
-        "hash": "8321912954710455162"
-      },
-      {
-        "file": "dist/event-catalog-service/main.js",
-        "hash": "7210923125880263983"
-      },
-      {
-        "file": "dist/event-catalog-service/main.js.map",
-        "hash": "18359598940776528587"
-      },
-      {
-        "file": "dist/event-catalog-service/package-lock.json",
-        "hash": "12075898903714892012"
-      },
-      {
-        "file": "dist/event-catalog-service/package.json",
-        "hash": "17340892154759124644"
-      },
-      {
-        "file": "eslint.config.mjs",
-        "hash": "1750064783103198479"
-      },
-      {
-        "file": "helper-commnad-nx.txt",
-        "hash": "9227667848114061837"
-      },
-      {
-        "file": "jest.config.ts",
-        "hash": "9882362695153092473"
-      },
-      {
-        "file": "jest.preset.js",
-        "hash": "7473220183190921152"
-      },
-      {
-        "file": "nx.json",
-        "hash": "17726925753861716072"
-      },
-      {
-        "file": "package-lock.json",
-        "hash": "9375954003215720227"
-      },
-      {
-        "file": "package.json",
-        "hash": "5354955819404416339"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "9602795642547511658"
-      }
-    ]
+    }
   },
   "externalNodesHash": "1141825833649692992"
 }
