@@ -1,6 +1,16 @@
 import { ApiProperty } from "@nestjs/swagger";
 
+export class VenueSeatsDto{
 
+    @ApiProperty()
+    seat_label: string
+
+    @ApiProperty()
+    x_position: number
+
+    @ApiProperty()
+    y_position: number
+}
 
 export class RegisterVenueDto{
 
@@ -21,5 +31,8 @@ export class RegisterVenueDto{
 
     @ApiProperty()
     capacity: number
+
+    @ApiProperty({ type: [VenueSeatsDto] })
+    seats: VenueSeatsDto[]
 
 }

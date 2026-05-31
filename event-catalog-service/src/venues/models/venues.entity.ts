@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { EventShowEntity } from "../../shows/models/event_show.entity";
+import { VenueSeatsEntity } from "./venue-seats.entity";
 
 
 
@@ -31,6 +32,9 @@ export class VenuesEntity{
         name: 'created_at'
     })
     createdAt: Date
+
+    @OneToMany(() => VenueSeatsEntity, (seat) => seat.venue)
+    seats: VenueSeatsEntity[];
 
     @OneToMany(()=>EventShowEntity,(eventShow)=>eventShow.venue)
     shows: EventShowEntity[]
