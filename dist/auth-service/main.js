@@ -167,8 +167,8 @@ const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
 const users_service_1 = __webpack_require__(11);
 const user_register_dto_1 = __webpack_require__(16);
-const user_login_dto_1 = __webpack_require__(18);
-const auth_guard_1 = __webpack_require__(19);
+const user_login_dto_1 = __webpack_require__(19);
+const auth_guard_1 = __webpack_require__(20);
 let UsersController = class UsersController {
     constructor(userService) {
         this.userService = userService;
@@ -266,7 +266,7 @@ let UsersService = class UsersService {
             console.log("Existing User: " + existingUser);
             if (existingUser)
                 throw new common_1.HttpException("An email id with this already exixting in our database", 409);
-            const user = this.userRepo.create({
+            const user = await this.userRepo.create({
                 first_name: userData.firstName,
                 last_name: userData.lastName,
                 password: hashedPassword,
@@ -418,6 +418,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UserRegisterDto = void 0;
 const tslib_1 = __webpack_require__(4);
 const swagger_1 = __webpack_require__(17);
+const class_validator_1 = __webpack_require__(18);
 class UserRegisterDto {
 }
 exports.UserRegisterDto = UserRegisterDto;
@@ -434,6 +435,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", String)
 ], UserRegisterDto.prototype, "password", void 0);
 tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
     (0, swagger_1.ApiProperty)(),
     tslib_1.__metadata("design:type", String)
 ], UserRegisterDto.prototype, "email", void 0);
@@ -447,6 +449,12 @@ module.exports = require("@nestjs/swagger");
 
 /***/ }),
 /* 18 */
+/***/ ((module) => {
+
+module.exports = require("class-validator");
+
+/***/ }),
+/* 19 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -454,21 +462,25 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UserLogsInDto = void 0;
 const tslib_1 = __webpack_require__(4);
 const swagger_1 = __webpack_require__(17);
+const class_validator_1 = __webpack_require__(18);
 class UserLogsInDto {
 }
 exports.UserLogsInDto = UserLogsInDto;
 tslib_1.__decorate([
+    (0, class_validator_1.IsEmail)(),
+    (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({ required: true }),
     tslib_1.__metadata("design:type", String)
 ], UserLogsInDto.prototype, "email", void 0);
 tslib_1.__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)({ required: true }),
     tslib_1.__metadata("design:type", String)
 ], UserLogsInDto.prototype, "password", void 0);
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -567,6 +579,7 @@ async function bootstrap() {
     swagger_1.SwaggerModule.setup('api', app, document);
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
+    app.useGlobalPipes(new common_1.ValidationPipe());
     const port = process.env.PORT || 3000;
     await app.listen(port);
     common_1.Logger.log(`🚀 Application is running on: http://localhost:${port}/${globalPrefix}`);

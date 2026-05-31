@@ -1,32 +1,21 @@
 {
   "run": {
-    "command": "nx serve event-catalog-service",
-    "startTime": "2026-05-30T15:08:38.368Z",
-    "endTime": "2026-05-30T15:20:23.982Z",
+    "command": "nx run event-catalog-service:build:development",
+    "startTime": "2026-05-31T02:11:24.429Z",
+    "endTime": "2026-05-31T02:11:24.524Z",
     "inner": false
   },
   "tasks": [
     {
-      "taskId": "event-catalog-service:build",
+      "taskId": "event-catalog-service:build:development",
       "target": "build",
       "projectName": "event-catalog-service",
-      "hash": "834656132584878226",
-      "startTime": "2026-05-30T15:08:38.394Z",
-      "endTime": "2026-05-30T15:08:51.139Z",
+      "hash": "17345416768031247590",
+      "startTime": "2026-05-31T02:11:24.495Z",
+      "endTime": "2026-05-31T02:11:24.519Z",
       "params": "",
-      "cacheStatus": "cache-miss",
+      "cacheStatus": "local-cache-hit",
       "status": 0
-    },
-    {
-      "taskId": "event-catalog-service:serve:development",
-      "target": "serve",
-      "projectName": "event-catalog-service",
-      "hash": "12322255354969577730",
-      "startTime": "2026-05-30T15:08:51.164Z",
-      "endTime": "2026-05-30T15:20:23.158Z",
-      "params": "",
-      "cacheStatus": "cache-miss",
-      "status": 1
     }
   ]
 }

@@ -1,25 +1,46 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { VenuesEntity } from './models/venues.entity';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { RegisterVenueDto } from './models/register-venue.dto';
+import { VenueSeatsEntity } from './models/venue-seats.entity';
 
 @Injectable()
 export class VenuesService {
-    constructor(@InjectRepository(VenuesEntity) private readonly venueRepo : Repository<VenuesEntity>){}
+    constructor(@InjectRepository(VenuesEntity) private readonly venueRepo : Repository<VenuesEntity>,
+        @InjectRepository(VenueSeatsEntity) private readonly venueSeatsRepo: Repository<VenueSeatsEntity>,
+        private readonly dataSource: DataSource
+    ){}
 
 
     async registerVenue(venueData: RegisterVenueDto){
         try{
-            const venue = await this.venueRepo.create({
-                name: venueData.venue_name,
-                city: venueData.city_name,
-                address: venueData.venue_address,
-                capacity: venueData.capacity,
-                pinCode: venueData.pin_code,
+            
+            await this.dataSource.transaction(async (manager)=>{
+                const txVenueRepo = manager.getRepository(VenuesEntity);
+                const txVenueSeatsRepo = manager.getRepository(VenueSeatsEntity);
+
+                const newVenue = txVenueRepo.create({
+                    name: venueData.venue_name,
+                    city: venueData.city_name,
+                    address: venueData.venue_address,
+                    capacity: venueData.capacity,
+                    pinCode: venueData.pin_code
+                })
+                await txVenueRepo.save(newVenue);
+
+                const newSeats = venueData.seats.map((seat)=>{
+                    return txVenueSeatsRepo.create({
+                        seatLabel: seat.seat_label,
+                        xPosition: seat.x_position,
+                        yPosition: seat.y_position,
+                        venue: newVenue
+                    })
+                })
+                await txVenueSeatsRepo.save(newSeats);
 
             })
-            await this.venueRepo.save(venue)
+            
             return {message: `${venueData.venue_name} has been registered successfuly`}
 
         }catch(err){

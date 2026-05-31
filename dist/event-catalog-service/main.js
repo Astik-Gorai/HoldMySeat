@@ -26,8 +26,8 @@ const app_controller_1 = __webpack_require__(5);
 const app_service_1 = __webpack_require__(6);
 const typeorm_1 = __webpack_require__(7);
 const events_module_1 = __webpack_require__(8);
-const venues_module_1 = __webpack_require__(19);
-const shows_module_1 = __webpack_require__(23);
+const venues_module_1 = __webpack_require__(20);
+const shows_module_1 = __webpack_require__(24);
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -127,7 +127,7 @@ exports.EventsModule = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
 const events_service_1 = __webpack_require__(9);
-const events_controller_1 = __webpack_require__(15);
+const events_controller_1 = __webpack_require__(16);
 const typeorm_1 = __webpack_require__(7);
 const event_entity_1 = __webpack_require__(10);
 const event_show_entity_1 = __webpack_require__(13);
@@ -492,6 +492,7 @@ exports.VenuesEntity = void 0;
 const tslib_1 = __webpack_require__(4);
 const typeorm_1 = __webpack_require__(11);
 const event_show_entity_1 = __webpack_require__(13);
+const venue_seats_entity_1 = __webpack_require__(15);
 let VenuesEntity = class VenuesEntity {
 };
 exports.VenuesEntity = VenuesEntity;
@@ -530,6 +531,10 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", typeof (_a = typeof Date !== "undefined" && Date) === "function" ? _a : Object)
 ], VenuesEntity.prototype, "createdAt", void 0);
 tslib_1.__decorate([
+    (0, typeorm_1.OneToMany)(() => venue_seats_entity_1.VenueSeatsEntity, (seat) => seat.venue),
+    tslib_1.__metadata("design:type", Array)
+], VenuesEntity.prototype, "seats", void 0);
+tslib_1.__decorate([
     (0, typeorm_1.OneToMany)(() => event_show_entity_1.EventShowEntity, (eventShow) => eventShow.venue),
     tslib_1.__metadata("design:type", Array)
 ], VenuesEntity.prototype, "shows", void 0);
@@ -543,14 +548,54 @@ exports.VenuesEntity = VenuesEntity = tslib_1.__decorate([
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.VenueSeatsEntity = void 0;
+const tslib_1 = __webpack_require__(4);
+const typeorm_1 = __webpack_require__(11);
+const venues_entity_1 = __webpack_require__(14);
+let VenueSeatsEntity = class VenueSeatsEntity {
+};
+exports.VenueSeatsEntity = VenueSeatsEntity;
+tslib_1.__decorate([
+    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    tslib_1.__metadata("design:type", String)
+], VenueSeatsEntity.prototype, "id", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.ManyToOne)(() => venues_entity_1.VenuesEntity, (venue) => venue.seats),
+    (0, typeorm_1.JoinColumn)({ name: 'venue_id' }),
+    tslib_1.__metadata("design:type", typeof (_a = typeof venues_entity_1.VenuesEntity !== "undefined" && venues_entity_1.VenuesEntity) === "function" ? _a : Object)
+], VenueSeatsEntity.prototype, "venue", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'seat_label' }),
+    tslib_1.__metadata("design:type", String)
+], VenueSeatsEntity.prototype, "seatLabel", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'x_position' }),
+    tslib_1.__metadata("design:type", Number)
+], VenueSeatsEntity.prototype, "xPosition", void 0);
+tslib_1.__decorate([
+    (0, typeorm_1.Column)({ name: 'y_position' }),
+    tslib_1.__metadata("design:type", Number)
+], VenueSeatsEntity.prototype, "yPosition", void 0);
+exports.VenueSeatsEntity = VenueSeatsEntity = tslib_1.__decorate([
+    (0, typeorm_1.Entity)('venue_seats')
+], VenueSeatsEntity);
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
 var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.EventsController = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
 const events_service_1 = __webpack_require__(9);
-const register_event_dto_1 = __webpack_require__(16);
-const fetch_event_filter_dto_1 = __webpack_require__(18);
+const register_event_dto_1 = __webpack_require__(17);
+const fetch_event_filter_dto_1 = __webpack_require__(19);
 let EventsController = class EventsController {
     constructor(eventsService) {
         this.eventsService = eventsService;
@@ -594,7 +639,7 @@ exports.EventsController = EventsController = tslib_1.__decorate([
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -602,7 +647,7 @@ var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RegisterEventDto = void 0;
 const tslib_1 = __webpack_require__(4);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
 const constants_1 = __webpack_require__(12);
 class RegisterEventDto {
 }
@@ -626,13 +671,13 @@ tslib_1.__decorate([
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ ((module) => {
 
 module.exports = require("@nestjs/swagger");
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -640,7 +685,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FetchEventFilterDto = void 0;
 const tslib_1 = __webpack_require__(4);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
 const constants_1 = __webpack_require__(12);
 class FetchEventFilterDto {
 }
@@ -690,7 +735,7 @@ tslib_1.__decorate([
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -698,17 +743,18 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VenuesModule = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
-const venues_service_1 = __webpack_require__(20);
-const venues_controller_1 = __webpack_require__(21);
+const venues_service_1 = __webpack_require__(21);
+const venues_controller_1 = __webpack_require__(22);
 const typeorm_1 = __webpack_require__(7);
 const venues_entity_1 = __webpack_require__(14);
+const venue_seats_entity_1 = __webpack_require__(15);
 let VenuesModule = class VenuesModule {
 };
 exports.VenuesModule = VenuesModule;
 exports.VenuesModule = VenuesModule = tslib_1.__decorate([
     (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forFeature([venues_entity_1.VenuesEntity])
+            typeorm_1.TypeOrmModule.forFeature([venues_entity_1.VenuesEntity, venue_seats_entity_1.VenueSeatsEntity])
         ],
         controllers: [venues_controller_1.VenuesController],
         providers: [venues_service_1.VenuesService],
@@ -717,11 +763,11 @@ exports.VenuesModule = VenuesModule = tslib_1.__decorate([
 
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-var _a;
+var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VenuesService = void 0;
 const tslib_1 = __webpack_require__(4);
@@ -729,20 +775,36 @@ const common_1 = __webpack_require__(1);
 const typeorm_1 = __webpack_require__(7);
 const venues_entity_1 = __webpack_require__(14);
 const typeorm_2 = __webpack_require__(11);
+const venue_seats_entity_1 = __webpack_require__(15);
 let VenuesService = class VenuesService {
-    constructor(venueRepo) {
+    constructor(venueRepo, venueSeatsRepo, dataSource) {
         this.venueRepo = venueRepo;
+        this.venueSeatsRepo = venueSeatsRepo;
+        this.dataSource = dataSource;
     }
     async registerVenue(venueData) {
         try {
-            const venue = await this.venueRepo.create({
-                name: venueData.venue_name,
-                city: venueData.city_name,
-                address: venueData.venue_address,
-                capacity: venueData.capacity,
-                pinCode: venueData.pin_code,
+            await this.dataSource.transaction(async (manager) => {
+                const txVenueRepo = manager.getRepository(venues_entity_1.VenuesEntity);
+                const txVenueSeatsRepo = manager.getRepository(venue_seats_entity_1.VenueSeatsEntity);
+                const newVenue = txVenueRepo.create({
+                    name: venueData.venue_name,
+                    city: venueData.city_name,
+                    address: venueData.venue_address,
+                    capacity: venueData.capacity,
+                    pinCode: venueData.pin_code
+                });
+                await txVenueRepo.save(newVenue);
+                const newSeats = venueData.seats.map((seat) => {
+                    return txVenueSeatsRepo.create({
+                        seatLabel: seat.seat_label,
+                        xPosition: seat.x_position,
+                        yPosition: seat.y_position,
+                        venue: newVenue
+                    });
+                });
+                await txVenueSeatsRepo.save(newSeats);
             });
-            await this.venueRepo.save(venue);
             return { message: `${venueData.venue_name} has been registered successfuly` };
         }
         catch (err) {
@@ -779,12 +841,13 @@ exports.VenuesService = VenuesService;
 exports.VenuesService = VenuesService = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__param(0, (0, typeorm_1.InjectRepository)(venues_entity_1.VenuesEntity)),
-    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object])
+    tslib_1.__param(1, (0, typeorm_1.InjectRepository)(venue_seats_entity_1.VenueSeatsEntity)),
+    tslib_1.__metadata("design:paramtypes", [typeof (_a = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _a : Object, typeof (_b = typeof typeorm_2.Repository !== "undefined" && typeorm_2.Repository) === "function" ? _b : Object, typeof (_c = typeof typeorm_2.DataSource !== "undefined" && typeorm_2.DataSource) === "function" ? _c : Object])
 ], VenuesService);
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -793,8 +856,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VenuesController = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
-const venues_service_1 = __webpack_require__(20);
-const register_venue_dto_1 = __webpack_require__(22);
+const venues_service_1 = __webpack_require__(21);
+const register_venue_dto_1 = __webpack_require__(23);
 let VenuesController = class VenuesController {
     constructor(venuesService) {
         this.venuesService = venuesService;
@@ -837,14 +900,29 @@ exports.VenuesController = VenuesController = tslib_1.__decorate([
 
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.RegisterVenueDto = void 0;
+exports.RegisterVenueDto = exports.VenueSeatsDto = void 0;
 const tslib_1 = __webpack_require__(4);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
+class VenueSeatsDto {
+}
+exports.VenueSeatsDto = VenueSeatsDto;
+tslib_1.__decorate([
+    (0, swagger_1.ApiProperty)(),
+    tslib_1.__metadata("design:type", String)
+], VenueSeatsDto.prototype, "seat_label", void 0);
+tslib_1.__decorate([
+    (0, swagger_1.ApiProperty)(),
+    tslib_1.__metadata("design:type", Number)
+], VenueSeatsDto.prototype, "x_position", void 0);
+tslib_1.__decorate([
+    (0, swagger_1.ApiProperty)(),
+    tslib_1.__metadata("design:type", Number)
+], VenueSeatsDto.prototype, "y_position", void 0);
 class RegisterVenueDto {
 }
 exports.RegisterVenueDto = RegisterVenueDto;
@@ -871,10 +949,14 @@ tslib_1.__decorate([
     (0, swagger_1.ApiProperty)(),
     tslib_1.__metadata("design:type", Number)
 ], RegisterVenueDto.prototype, "capacity", void 0);
+tslib_1.__decorate([
+    (0, swagger_1.ApiProperty)({ type: [VenueSeatsDto] }),
+    tslib_1.__metadata("design:type", Array)
+], RegisterVenueDto.prototype, "seats", void 0);
 
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -882,8 +964,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ShowsModule = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
-const shows_service_1 = __webpack_require__(24);
-const shows_controller_1 = __webpack_require__(25);
+const shows_service_1 = __webpack_require__(25);
+const shows_controller_1 = __webpack_require__(26);
 const typeorm_1 = __webpack_require__(7);
 const event_entity_1 = __webpack_require__(10);
 const event_show_entity_1 = __webpack_require__(13);
@@ -903,7 +985,7 @@ exports.ShowsModule = ShowsModule = tslib_1.__decorate([
 
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -980,7 +1062,7 @@ exports.ShowsService = ShowsService = tslib_1.__decorate([
 
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -989,9 +1071,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ShowsController = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
-const shows_service_1 = __webpack_require__(24);
-const register_show_dto_1 = __webpack_require__(26);
-const show_filter_dto_1 = __webpack_require__(27);
+const shows_service_1 = __webpack_require__(25);
+const register_show_dto_1 = __webpack_require__(27);
+const show_filter_dto_1 = __webpack_require__(28);
 let ShowsController = class ShowsController {
     constructor(showsService) {
         this.showsService = showsService;
@@ -1025,7 +1107,7 @@ exports.ShowsController = ShowsController = tslib_1.__decorate([
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -1033,7 +1115,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RegisterShowDto = void 0;
 const tslib_1 = __webpack_require__(4);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
 class RegisterShowDto {
 }
 exports.RegisterShowDto = RegisterShowDto;
@@ -1071,7 +1153,7 @@ tslib_1.__decorate([
 
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -1079,7 +1161,7 @@ var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ShowsFilterDto = void 0;
 const tslib_1 = __webpack_require__(4);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
 const constants_1 = __webpack_require__(12);
 class ShowsFilterDto {
 }
@@ -1151,7 +1233,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const common_1 = __webpack_require__(1);
 const core_1 = __webpack_require__(2);
 const app_module_1 = __webpack_require__(3);
-const swagger_1 = __webpack_require__(17);
+const swagger_1 = __webpack_require__(18);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const config = new swagger_1.DocumentBuilder()
