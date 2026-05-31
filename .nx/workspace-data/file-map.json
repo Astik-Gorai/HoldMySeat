@@ -29,6 +29,86 @@
   ],
   "fileMap": {
     "projectFileMap": {
+      "user-service": [
+        {
+          "file": "user-service/eslint.config.mjs",
+          "hash": "17888082442276282709"
+        },
+        {
+          "file": "user-service/jest.config.cts",
+          "hash": "3333076081763587560"
+        },
+        {
+          "file": "user-service/project.json",
+          "hash": "16553050829922629043"
+        },
+        {
+          "file": "user-service/src/app/app.controller.spec.ts",
+          "hash": "10209687131463184117",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "user-service/src/app/app.controller.ts",
+          "hash": "7449614201840690085",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "user-service/src/app/app.module.ts",
+          "hash": "4590305082660932420",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "user-service/src/app/app.service.spec.ts",
+          "hash": "15103131282087157093",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "user-service/src/app/app.service.ts",
+          "hash": "7653932249302388706",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "user-service/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "user-service/src/main.ts",
+          "hash": "1473621791371823293",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "user-service/tsconfig.app.json",
+          "hash": "10866886686149627505"
+        },
+        {
+          "file": "user-service/tsconfig.json",
+          "hash": "9096817977897245064"
+        },
+        {
+          "file": "user-service/tsconfig.spec.json",
+          "hash": "15412988682655645086"
+        },
+        {
+          "file": "user-service/webpack.config.js",
+          "hash": "10671487949664775706",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
       "event-catalog-service": [
         {
           "file": "event-catalog-service/.gitignore",
@@ -36,33 +116,33 @@
         },
         {
           "file": "event-catalog-service/eslint.config.mjs",
-          "hash": "9036454466467975933"
+          "hash": "17888082442276282709"
         },
         {
           "file": "event-catalog-service/jest.config.cts",
-          "hash": "13788623668940368308"
+          "hash": "3215392933409152667"
         },
         {
           "file": "event-catalog-service/project.json",
-          "hash": "5194665232526762531"
+          "hash": "10978752116562499177"
         },
         {
           "file": "event-catalog-service/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
+          "hash": "10209687131463184117",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "event-catalog-service/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
+          "hash": "7449614201840690085",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
           "file": "event-catalog-service/src/app/app.module.ts",
-          "hash": "2805707016943169943",
+          "hash": "12264363248753512438",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm"
@@ -70,14 +150,14 @@
         },
         {
           "file": "event-catalog-service/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
+          "hash": "15103131282087157093",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "event-catalog-service/src/app/app.service.ts",
-          "hash": "9967902337593410053",
+          "hash": "7653932249302388706",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -151,7 +231,7 @@
         },
         {
           "file": "event-catalog-service/src/main.ts",
-          "hash": "5542018967176253928",
+          "hash": "15186212828832134511",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core",
@@ -219,14 +299,21 @@
         },
         {
           "file": "event-catalog-service/src/venues/models/register-venue.dto.ts",
-          "hash": "8632597478865591642",
+          "hash": "15756764091159764809",
           "deps": [
             "npm:@nestjs/swagger"
           ]
         },
         {
+          "file": "event-catalog-service/src/venues/models/venue-seats.entity.ts",
+          "hash": "4490030444461901530",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
           "file": "event-catalog-service/src/venues/models/venues.entity.ts",
-          "hash": "7012721866860565406",
+          "hash": "13469988412059476907",
           "deps": [
             "npm:typeorm"
           ]
@@ -247,7 +334,7 @@
         },
         {
           "file": "event-catalog-service/src/venues/venues.module.ts",
-          "hash": "15503899006408034229",
+          "hash": "16386713949034898645",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm"
@@ -262,7 +349,7 @@
         },
         {
           "file": "event-catalog-service/src/venues/venues.service.ts",
-          "hash": "9972426185086171675",
+          "hash": "16986014441549546257",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -271,19 +358,19 @@
         },
         {
           "file": "event-catalog-service/tsconfig.app.json",
-          "hash": "4975840368894154052"
+          "hash": "10866886686149627505"
         },
         {
           "file": "event-catalog-service/tsconfig.json",
-          "hash": "9420862676426701392"
+          "hash": "9096817977897245064"
         },
         {
           "file": "event-catalog-service/tsconfig.spec.json",
-          "hash": "16514264766063949355"
+          "hash": "15412988682655645086"
         },
         {
           "file": "event-catalog-service/webpack.config.js",
-          "hash": "6640727248112043769",
+          "hash": "367453888680420408",
           "deps": [
             "npm:@nx/webpack"
           ]
@@ -296,33 +383,33 @@
         },
         {
           "file": "auth-service/eslint.config.mjs",
-          "hash": "9036454466467975933"
+          "hash": "17888082442276282709"
         },
         {
           "file": "auth-service/jest.config.cts",
-          "hash": "14013103225563621725"
+          "hash": "17990434430654400428"
         },
         {
           "file": "auth-service/project.json",
-          "hash": "13723868375963339252"
+          "hash": "5980649820452220935"
         },
         {
           "file": "auth-service/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
+          "hash": "10209687131463184117",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "auth-service/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
+          "hash": "7449614201840690085",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
           "file": "auth-service/src/app/app.module.ts",
-          "hash": "17315616347365793083",
+          "hash": "8650983468784055476",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/config",
@@ -332,14 +419,14 @@
         },
         {
           "file": "auth-service/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
+          "hash": "15103131282087157093",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "auth-service/src/app/app.service.ts",
-          "hash": "9967902337593410053",
+          "hash": "7653932249302388706",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -364,7 +451,7 @@
         },
         {
           "file": "auth-service/src/main.ts",
-          "hash": "6639873807421510788",
+          "hash": "4170564444147935403",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core",
@@ -414,7 +501,7 @@
         },
         {
           "file": "auth-service/src/users/users.module.ts",
-          "hash": "4512723489067675995",
+          "hash": "13997412387904596159",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/typeorm",
@@ -441,99 +528,19 @@
         },
         {
           "file": "auth-service/tsconfig.app.json",
-          "hash": "4975840368894154052"
+          "hash": "10866886686149627505"
         },
         {
           "file": "auth-service/tsconfig.json",
-          "hash": "9420862676426701392"
+          "hash": "9096817977897245064"
         },
         {
           "file": "auth-service/tsconfig.spec.json",
-          "hash": "16514264766063949355"
+          "hash": "15412988682655645086"
         },
         {
           "file": "auth-service/webpack.config.js",
-          "hash": "15953908841728647221",
-          "deps": [
-            "npm:@nx/webpack"
-          ]
-        }
-      ],
-      "user-service": [
-        {
-          "file": "user-service/eslint.config.mjs",
-          "hash": "9036454466467975933"
-        },
-        {
-          "file": "user-service/jest.config.cts",
-          "hash": "507200825888898494"
-        },
-        {
-          "file": "user-service/project.json",
-          "hash": "16217989429287407385"
-        },
-        {
-          "file": "user-service/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "user-service/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "user-service/src/app/app.module.ts",
-          "hash": "11673476679848632172",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "user-service/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
-          "deps": [
-            "npm:@nestjs/testing"
-          ]
-        },
-        {
-          "file": "user-service/src/app/app.service.ts",
-          "hash": "9967902337593410053",
-          "deps": [
-            "npm:@nestjs/common"
-          ]
-        },
-        {
-          "file": "user-service/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "user-service/src/main.ts",
-          "hash": "14244403322143362372",
-          "deps": [
-            "npm:@nestjs/common",
-            "npm:@nestjs/core"
-          ]
-        },
-        {
-          "file": "user-service/tsconfig.app.json",
-          "hash": "4975840368894154052"
-        },
-        {
-          "file": "user-service/tsconfig.json",
-          "hash": "9420862676426701392"
-        },
-        {
-          "file": "user-service/tsconfig.spec.json",
-          "hash": "16514264766063949355"
-        },
-        {
-          "file": "user-service/webpack.config.js",
-          "hash": "5563287737655688182",
+          "hash": "8586171363029029980",
           "deps": [
             "npm:@nx/webpack"
           ]
@@ -542,43 +549,43 @@
       "api-gateway": [
         {
           "file": "api-gateway/jest.config.cts",
-          "hash": "5755934940413058791"
+          "hash": "868636620034827615"
         },
         {
           "file": "api-gateway/project.json",
-          "hash": "8089581535133220418"
+          "hash": "17976126569615361574"
         },
         {
           "file": "api-gateway/src/app/app.controller.spec.ts",
-          "hash": "7647647754668916054",
+          "hash": "10209687131463184117",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "api-gateway/src/app/app.controller.ts",
-          "hash": "15276891910009544695",
+          "hash": "7449614201840690085",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
           "file": "api-gateway/src/app/app.module.ts",
-          "hash": "11673476679848632172",
+          "hash": "4590305082660932420",
           "deps": [
             "npm:@nestjs/common"
           ]
         },
         {
           "file": "api-gateway/src/app/app.service.spec.ts",
-          "hash": "13111976464657524091",
+          "hash": "15103131282087157093",
           "deps": [
             "npm:@nestjs/testing"
           ]
         },
         {
           "file": "api-gateway/src/app/app.service.ts",
-          "hash": "9967902337593410053",
+          "hash": "7653932249302388706",
           "deps": [
             "npm:@nestjs/common"
           ]
@@ -589,7 +596,7 @@
         },
         {
           "file": "api-gateway/src/main.ts",
-          "hash": "14244403322143362372",
+          "hash": "1473621791371823293",
           "deps": [
             "npm:@nestjs/common",
             "npm:@nestjs/core"
@@ -597,19 +604,149 @@
         },
         {
           "file": "api-gateway/tsconfig.app.json",
-          "hash": "4975840368894154052"
+          "hash": "10866886686149627505"
         },
         {
           "file": "api-gateway/tsconfig.json",
-          "hash": "9420862676426701392"
+          "hash": "9096817977897245064"
         },
         {
           "file": "api-gateway/tsconfig.spec.json",
-          "hash": "16514264766063949355"
+          "hash": "15412988682655645086"
         },
         {
           "file": "api-gateway/webpack.config.js",
-          "hash": "7115892454371516904",
+          "hash": "11218220866479797215",
+          "deps": [
+            "npm:@nx/webpack"
+          ]
+        }
+      ],
+      "inventory-service": [
+        {
+          "file": "inventory-service/.gitignore",
+          "hash": "13603088859507085958"
+        },
+        {
+          "file": "inventory-service/eslint.config.mjs",
+          "hash": "17888082442276282709"
+        },
+        {
+          "file": "inventory-service/project.json",
+          "hash": "89400014445194110"
+        },
+        {
+          "file": "inventory-service/responsibilty.md",
+          "hash": "11545627315146629440"
+        },
+        {
+          "file": "inventory-service/src/app/app.controller.ts",
+          "hash": "7449614201840690085",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/app/app.module.ts",
+          "hash": "9407070197170013190",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/app/app.service.ts",
+          "hash": "7653932249302388706",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "inventory-service/src/main.ts",
+          "hash": "1473621791371823293",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/core"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seat.entity.ts",
+          "hash": "14688131526216531394",
+          "deps": [
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats-status-update.dto.ts",
+          "hash": "10215283126596658187",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats-status.enum.ts",
+          "hash": "16357494401892796883"
+        },
+        {
+          "file": "inventory-service/src/seats/models/seats.init.dto.ts",
+          "hash": "1483723436668766757",
+          "deps": [
+            "npm:@nestjs/swagger"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.controller.spec.ts",
+          "hash": "13087587309194397477",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.controller.ts",
+          "hash": "3428046662480359049",
+          "deps": [
+            "npm:@nestjs/common"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.module.ts",
+          "hash": "3510701761839576388",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.service.spec.ts",
+          "hash": "9533165773416162337",
+          "deps": [
+            "npm:@nestjs/testing"
+          ]
+        },
+        {
+          "file": "inventory-service/src/seats/seats.service.ts",
+          "hash": "2303514508402193965",
+          "deps": [
+            "npm:@nestjs/common",
+            "npm:@nestjs/typeorm",
+            "npm:typeorm"
+          ]
+        },
+        {
+          "file": "inventory-service/tsconfig.app.json",
+          "hash": "10274140171022948136"
+        },
+        {
+          "file": "inventory-service/tsconfig.json",
+          "hash": "11210391855315197954"
+        },
+        {
+          "file": "inventory-service/webpack.config.js",
+          "hash": "8712970456205415098",
           "deps": [
             "npm:@nx/webpack"
           ]
@@ -623,15 +760,15 @@
       },
       {
         "file": ".prettierignore",
-        "hash": "14688272390704683536"
+        "hash": "17085498363870782104"
       },
       {
         "file": ".prettierrc",
-        "hash": "16267754514737964994"
+        "hash": "6820402234827505055"
       },
       {
         "file": ".vscode/launch.json",
-        "hash": "1835654459735552533"
+        "hash": "17179548346057599846"
       },
       {
         "file": "README.md",
@@ -639,27 +776,27 @@
       },
       {
         "file": "dist/auth-service/main.js",
-        "hash": "8733698838191478876"
+        "hash": "8077627728171993696"
       },
       {
         "file": "dist/auth-service/main.js.map",
-        "hash": "8488774109283138926"
+        "hash": "10874248047106888687"
       },
       {
         "file": "dist/auth-service/package-lock.json",
-        "hash": "17362721601093595067"
+        "hash": "8113477815710250996"
       },
       {
         "file": "dist/auth-service/package.json",
-        "hash": "13964333047245427842"
+        "hash": "8321912954710455162"
       },
       {
         "file": "dist/event-catalog-service/main.js",
-        "hash": "8670810324942360434"
+        "hash": "7210923125880263983"
       },
       {
         "file": "dist/event-catalog-service/main.js.map",
-        "hash": "8121733534607286253"
+        "hash": "18359598940776528587"
       },
       {
         "file": "dist/event-catalog-service/package-lock.json",
@@ -671,7 +808,7 @@
       },
       {
         "file": "eslint.config.mjs",
-        "hash": "12926286793420397906"
+        "hash": "1750064783103198479"
       },
       {
         "file": "helper-commnad-nx.txt",
@@ -679,27 +816,27 @@
       },
       {
         "file": "jest.config.ts",
-        "hash": "6870352021923392442"
+        "hash": "9882362695153092473"
       },
       {
         "file": "jest.preset.js",
-        "hash": "9430166341120122740"
+        "hash": "7473220183190921152"
       },
       {
         "file": "nx.json",
-        "hash": "10403563634959019201"
+        "hash": "17726925753861716072"
       },
       {
         "file": "package-lock.json",
-        "hash": "6170825452249817667"
+        "hash": "9375954003215720227"
       },
       {
         "file": "package.json",
-        "hash": "3395088122807287102"
+        "hash": "5354955819404416339"
       },
       {
         "file": "tsconfig.base.json",
-        "hash": "3385014866466956207"
+        "hash": "9602795642547511658"
       }
     ]
   },
