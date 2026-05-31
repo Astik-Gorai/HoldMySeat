@@ -15,7 +15,7 @@ export class VenuesService {
 
     async registerVenue(venueData: RegisterVenueDto){
         try{
-            
+
             await this.dataSource.transaction(async (manager)=>{
                 const txVenueRepo = manager.getRepository(VenuesEntity);
                 const txVenueSeatsRepo = manager.getRepository(VenueSeatsEntity);
@@ -71,6 +71,22 @@ export class VenuesService {
             return allVenues;
         }catch(err){
             throw new Error(`Error while fetching all venues: ${err.message}`)
+        }
+    }
+
+
+    async getVenueSeats(venue_id: string){
+        try{
+            const venueSeats = await this.venueSeatsRepo.find({
+                where: {
+                    venue: {
+                        id: venue_id
+                    }
+                }
+            })
+            return venueSeats;
+        }catch(err){
+            throw new Error(`Error while fetching venue seats: ${err.message}`)
         }
     }
 }
