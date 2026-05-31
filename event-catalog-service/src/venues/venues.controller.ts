@@ -17,6 +17,11 @@ export class VenuesController {
     return await this.venuesService.deleteVenue(venue_id);
   }
 
+  @Get('/get-venue-seats/:id')
+  async getVenueSeats(@Param('id') venue_id: string){
+    return await this.venuesService.getVenueSeats(venue_id);
+  }
+
   @Get('all-venues')
   async getAllVenues(){
     return await this.venuesService.getAllVenues();
