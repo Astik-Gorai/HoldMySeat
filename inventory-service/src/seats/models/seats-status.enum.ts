@@ -2,5 +2,6 @@
 export enum SeatStatusEnum{
     AVAILABLE = 'available',
     HELD = 'held',
-    BOOKED = 'booked'
+    BOOKED = 'booked',
+    CANCELLED = 'cancelled'
 }

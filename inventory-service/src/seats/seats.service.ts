@@ -1,4 +1,4 @@
-import { HttpException, Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { SeatInitDto } from './models/seats.init.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DataSource, In, Repository } from 'typeorm';
@@ -14,26 +14,28 @@ export class SeatsService {
     ){}
 
     async initializeSeats(seatInitPayload: SeatInitDto) {
+        const showId = seatInitPayload.showId;
+        const venueSeats = seatInitPayload.venueSeats;
+        console.log('venueSeats',venueSeats);
         const seatsToCreate: ShowSeatsEntity[] = [];
-        const seats = []
-
-        // We need to fetch seat details from the event-catalog-service
-        
-        seats.forEach(seat => {
+        if(venueSeats.length === 0) return new HttpException('No venue seats provided', HttpStatus.BAD_REQUEST);
+        for(const seat of venueSeats){
             const showSeat = this.seatRepo.create({
-                venue_seat_id: seat.venue_seat_id
+                show_id: showId,
+                venue_seat_id: seat.id,
+                status: SeatStatusEnum.AVAILABLE,
+                hold_by: null,
+                hold_until: null
             });
-            
             seatsToCreate.push(showSeat);
-        });
-    
-        if (seatsToCreate.length === 0) return;
+        }
         await this.dataSoure.transaction(async (txManager)=>{
             const txSeatRepo = txManager.getRepository(ShowSeatsEntity)
             // Save with 'chunk' configuration to protect database memory boundaries
             await txSeatRepo.save(seatsToCreate, { chunk: 500 });
         })
-        
+        console.log('Seats initialized successfully');
+        return {message: 'Seats initialized successfully'}
     }
 
     async getShowHeatMap(showId:string){
@@ -41,6 +43,11 @@ export class SeatsService {
             where:{show_id: showId}
         })
         return shows
+    }
+
+    async cancelShowSeats(showId:string){
+        await this.seatRepo.update({show_id: showId}, {status: SeatStatusEnum.CANCELLED});
+        return {message: 'Show seats cancelled successfully'}
     }
 
     async editStatusSeat(editSeatPayload: SeatsStatusUpdateDto){

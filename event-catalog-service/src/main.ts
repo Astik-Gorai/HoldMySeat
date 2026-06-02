@@ -7,9 +7,22 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import {Transport} from '@nestjs/microservices';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  // app.connectMicroservice({
+  //   transport: Transport.RMQ,
+  //   options: {
+  //     urls: ['amqp://localhost:5672'],
+  //     queue: 'inventory_queue',
+  //     queueOptions: {
+  //       durable: true,
+  //     },
+  //   },
+  // });
+  
+  // await app.startAllMicroservices();
   const config = new DocumentBuilder()
     .setTitle('Auth Service APIs')
     .setDescription('Supporting Services for authentication and authorization used for HoldMySeat')
